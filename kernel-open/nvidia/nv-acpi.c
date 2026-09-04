@@ -132,16 +132,7 @@ static void nv_acpi_powersource_hotplug_event(acpi_handle handle, u32 event_type
      * This function will handle acpi events from the linux kernel, used
      * to detect notifications from Power Source device
      */
-    nv_acpi_t *pNvAcpiObject = data;
-    u32 ac_plugged = 0;
-
-    if (event_type == ACPI_POWER_SOURCE_CHANGE_EVENT || event_type == ACPI_POWER_SOURCE_BUS_CHANGE_EVENT)
-    {
-        if (nv_acpi_get_powersource(&ac_plugged) != NV_OK)
-            return;
-
-        rm_power_source_change_event(pNvAcpiObject->sp, !ac_plugged);
-    }
+    return; // STUB to fix power management issues
 }
 
 static void nv_acpi_nvpcf_event(acpi_handle handle, u32 event_type, void *data)
