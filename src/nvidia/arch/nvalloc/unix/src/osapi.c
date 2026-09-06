@@ -1373,7 +1373,7 @@ static void RmHandleDNotifierEvent(
 
     RmUnixRmApiEpilogue(pNv, &threadState);
 
-    if (rmStatus != NV_OK)
+    if (rmStatus != NV_OK && rmStatus != 0x11)
     {
         NV_PRINTF(LEVEL_ERROR,
                   "%s: Failed to handle ACPI D-Notifier event, status=0x%x\n",
